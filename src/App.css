@@ -154,3 +154,9 @@
 .Footer-logo {
   height: 55px;
 }
+
+.Map {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
