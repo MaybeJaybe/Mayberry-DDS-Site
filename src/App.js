@@ -22,8 +22,8 @@ function App() {
         <div className="Schedule">
           <h2>Schedule an appointment</h2>
           <div className="Schedule-info">
-            <p>760-446-2800 </p>
-            <p> paul.mayberry@aol.com </p>
+            <p href="tel:+17604462800">760-446-2800</p>
+            <p>paul.mayberry@aol.com</p>
           </div>
           
           {/* best dentures, extractions, list of services */}
