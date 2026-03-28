@@ -1,162 +1,296 @@
+/* ── Color palette ─────────────────────────────────────────
+   Cream:      #FFFFF2
+   Pink:       #FADADD
+   Peach:      #F9C7AE
+   Dark teal:  #004444
+   Teal:       #009E89
+   ──────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .App {
   min-height: 100vh;
   font-family: "Cormorant Infant", serif;
+  font-size: clamp(14px, 1.5vw, 20px);
   color: #004444;
   font-weight: 500;
-  font-style: normal;
-  margin: 0;
+  background-color: #FFFFF2;
 }
-@media screen and (min-height: 601px) {
-  .App {
-    font-size: 20px;
-  }
-}
-@media screen and (max-height: 600px) {
-  .App {
-    font-size: 10px;
-  }
-}
+
+/* ── Header ──────────────────────────────────────────────── */
 
 .App-header {
   background: #004444;
-  height: 130px;
-  padding: 5px;
-}
-.App-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 40px;
   position: relative;
-  text-align: center;
-  color: #FFFFF2;
-  /* font-size: calc(20px + 2vmin); */
-  /* font-family: "Charm", cursive;
-  font-weight: 400;
-  font-style: normal; */
-  margin: 10px 0 0 0;
 }
-.App-header p {
-  color: #FFFFF2;
-  text-align: center;
-  /* font-size: calc(8px + 2vmin); */
-  margin: 2px;
-}
+
 .App-header::after {
   position: absolute;
-  top: 140px;
-  left: 0px;
+  bottom: -48px;
+  left: 0;
   width: 100%;
-  content: " ";
+  content: "";
   background: radial-gradient(circle at 50% 0%, #004444 25%, #FADADD 26%, #FADADD 40%);
-  background-color: #004444;
+  background-color: transparent;
   background-size: 50px 100px;
   height: 50px;
   background-repeat: repeat-x;
+  pointer-events: none;
 }
 
 .Header-logo {
-  position: absolute;
-  top: 20px;
-  left: 40px;
-  height: 100px;
+  height: 90px;
+  flex-shrink: 0;
 }
-@media screen and (max-width: 600px) {
-  .Header-logo {
-    display: none;
-  }
-} 
 
-.Schedule {
-  margin: 50px 0 0 0;
+.Header-text {
+  flex: 1;
   text-align: center;
 }
-/* .Schedule h2 {
-  font-size: calc(10px + 2vmin);
-} */
+
+.App-title {
+  color: #FFFFF2;
+  margin: 0 0 4px 0;
+  font-size: 2em;
+}
+
+.Address {
+  color: #FADADD;
+  font-style: normal;
+}
+
+.Address p {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
+
+@media (max-width: 500px) {
+  .App-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 20px;
+  }
+  .Header-logo {
+    height: 70px;
+  }
+}
+
+/* ── Schedule / CTA ──────────────────────────────────────── */
+
+.Schedule {
+  margin: 68px 0 10px;
+  text-align: center;
+}
+
+.Schedule h2 {
+  margin-bottom: 6px;
+  font-size: 1.6em;
+}
+
 .Schedule-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: -30px 0 0 0;
-  padding: 0;
+  gap: 10px;
+  flex-wrap: wrap;
 }
+
 .Schedule-info a {
   color: #004444;
   text-decoration: none;
-  padding: 0 15px;
-  /* font-size: calc(4px + 2vmin); */
-}
-.Schedule-info p {
-  padding: 0 15px;
-  /* font-size: calc(4px + 2vmin); */
+  font-size: 1.1em;
+  border-bottom: 1px solid #009E89;
+  padding-bottom: 1px;
+  transition: color 0.2s;
 }
 
+.Schedule-info a:hover {
+  color: #009E89;
+}
+
+.Schedule-divider {
+  color: #F9C7AE;
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+/* ── Office section ──────────────────────────────────────── */
+
 .Office-bg {
-  opacity:80%;
-  margin: 10px 0;
-  /* position: absolute;
-  top: 200px;
-  left: 0px; */
   width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 14px 0;
+  opacity: 0.85;
 }
 
 .Info {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 0 20%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px 5%;
 }
 
 .Owners-img {
-  height: 390px;
+  height: 340px;
   border: 1px solid #0044442f;
   border-radius: 15px;
-  /* filter: drop-shadow(#F9C7AE 8px 8px 4px); */
+  box-shadow: 4px 4px 12px #F9C7AE;
 }
 
-/* .Hours {
-  font-size: calc(11px + 1vmin);
-} */
+/* ── Hours ───────────────────────────────────────────────── */
 
-.Section {
+.Hours h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.Hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #0044441a;
+  font-size: 0.95em;
+}
+
+.Hours-day {
+  font-weight: 600;
+}
+
+.Hours-time {
+  color: #009E89;
+}
+
+/* ── Map ─────────────────────────────────────────────────── */
+
+.Map {
+  flex: 0 1 420px;
+  min-width: 0;
+  max-width: 420px;
+  width: 100%;
+}
+
+.Map-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.Map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .Map-container {
+    width: 100%;
+  }
+  .Info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Owners-img {
+    height: auto;
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+/* ── Staff section ───────────────────────────────────────── */
+
+.Staff-section {
   text-align: center;
-  /* font-size: calc(10px + 2vmin); */
+  padding: 20px 5% 40px;
+}
+
+.Staff-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
 }
 
 .Staff {
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
   justify-content: center;
-  margin: 0 5em;
+  gap: 20px;
 }
+
+.Staff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+}
+
 .Staff-img {
-  max-height: 210px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border: 1px solid #0044442f;
   border-radius: 50%;
-  filter: drop-shadow(#F9C7AE 8px 8px 4px);
-  margin: 3em;
+  filter: drop-shadow(4px 4px 4px #F9C7AE);
+  margin-bottom: 10px;
 }
-.Staff h3 {
-  /* font-size: calc(8px + 2vmin); */
-  margin: -35px 0 0 0;
+
+.Staff-card h3 {
+  margin: 0 0 2px 0;
+  font-size: 1em;
 }
-.Staff p {
-  /* font-size: calc(4px + 2vmin); */
+
+.Staff-card p {
   margin: 0;
+  font-size: 0.82em;
+  color: #009E89;
 }
+
+/* ── Footer ──────────────────────────────────────────────── */
 
 .Footer {
-  color: #FFFFF2;
   background-color: #004444;
+  color: #FFFFF2;
   text-align: center;
-  width: 100%;
-  margin: 2em 0;
-  padding: 1.5em 0 .5em 0;
-}
-.Footer-logo {
-  height: 55px;
+  padding: 24px 20px 16px;
 }
 
-.Map {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+.Footer-logo {
+  height: 55px;
+  margin-bottom: 8px;
+}
+
+.Footer-tagline {
+  font-size: 1.4em;
+  margin: 0 0 6px 0;
+}
+
+.Footer-copy {
+  font-size: 0.8em;
+  color: #FADADD;
+  margin: 0;
 }
